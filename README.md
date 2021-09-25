@@ -8,12 +8,95 @@
 |Zulfiqar Fauzul Akbar|05111940000101|
 
 ### Soal No. 1
+Sebutkan webserver yang digunakan pada "ichimarumaru.tech"!
+
+**Penyelesaian**
+
+wireshark filter expression:0 `http.host == "ichimarumaru.tech"`<br>
+Setelah itu pilih follow http stream dan muncul seperti berikut :
+
+![eb0fcc1a422290d9910eafc9231ce0e2](https://user-images.githubusercontent.com/62832487/134772604-b4bf9ccd-e0c9-4664-b5f4-794ed8d24062.png)
+
 ### Soal No. 2
+Temukan paket dari web-web yang menggunakan basic authentication method!
+
+**Penyelesaian**
+
+wireshark filter expression: `http.authbasic`<br>
+di dapat : basic.ichimarumaru.tech
+
+![57d70422263e3060de886a8f7f035fce](https://user-images.githubusercontent.com/62832487/134772688-2c645b91-fb93-4a87-8fa8-ae30972e27cb.png)
+
 ### Soal No. 3
+Ikuti perintah di basic.ichimarumaru.tech! Username dan password bisa didapatkan dari file .pcapng!
+
+**Penyelesaian**
+
+Wireshark filter expression : `http.host == "basic.ichimarumaru.tech"`<br>
+Lalu dapat dilihat pada isi package pada credential<br>
+USER : kuncimenujulautan<br>
+PASS : tQKEJFbgNGC1NCZlWAOjhyCOm6o3xEbPkJhTciZN<br>
+
+![cc0c8e2485966f6347bd2e796dc3ac93](https://user-images.githubusercontent.com/62832487/134772725-6c2aaa6e-2acb-4681-a7f7-f7f059177b0f.png)
+
+setelah itu log in pada webnya dan menjawab pertanyaan disana
+
+![c904194b00589eb2caed6e6788b462e1](https://user-images.githubusercontent.com/62832487/134772782-8e1df55a-fc17-473c-8f58-88bef19a233f.png)
+
 ### Soal No. 4
+Temukan paket mysql yang mengandung perintah query select!
+
+**Penyelesaian**
+
+Wireshark filter : `mysql contains "SELECT" || mysql contains "select"`<br>
+Maka didapat command sql yg berisi SELECT atau select
+
+![cd1b746ece835698fc828c8ef75fa110](https://user-images.githubusercontent.com/62832487/134772820-3124ec6c-7eed-4e1f-8bb4-253dd6456e68.png)
+
 ### Soal No. 5
+Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan password bisa didapat dari query insert pada table users dari file .pcap!
+
+**Penyelesaian**
+Wireshark filter : `mysql contains "INSERT"`<br>
+maka di dapat id dan password nya<br>
+
+Username : akakanomi<br>
+Password : pemisah4lautan
+
+![472a31472cfebb2af2b7f09ce004900b](https://user-images.githubusercontent.com/62832487/134772873-6948ff57-9fb0-46a6-a2ea-9da53d856154.png)
+
+dan menyelesaikan soal pada web tersebut :
+
+![74e28251ca816ceec051b5046302de7f](https://user-images.githubusercontent.com/62832487/134772899-790e00b4-babf-461c-be59-f4736059ce3f.png)
+
 ### Soal No. 6
+Cari username dan password ketika melakukan login ke FTP Server!
+
+**Penyelesaian**
+Dengan menggunakan `ftp.request.command == USER || ftp.request.command == PASS` 
+Di dapat <br>
+USER : secretuser<br>
+PASS : aku.pengen.pw.aja
+
+![194ad03da9114c856abcd47e5e11e845](https://user-images.githubusercontent.com/62832487/134772921-c68a328c-1d81-48b1-8561-e0c3b9497a30.png)
+
 ### Soal No. 7
+Ada 500 file zip yang disimpan ke FTP Server dengan nama 0.zip, 1.zip, 2.zip, ..., 499.zip. Simpan dan Buka file pdf tersebut. (Hint = nama pdf-nya "Real.pdf")
+
+**Penyelesaian**
+Pertama cari ftp yang mengandung “Real.pdf” dengan menggunakan `frame contains “Real.pdf”`, dan pilih follow tcp stream
+
+![f30e3533819833217344b1029827a50c](https://user-images.githubusercontent.com/62832487/134772956-9c6c44b1-4cac-42e4-96d5-3df3f01623ba.png)
+
+Setelah itu data diubah menjadi raw dan di save sebagai zip setelah itu di ekstrak
+
+![b2a8f03b9bd7c66d12a3a3d0ce93eb13](https://user-images.githubusercontent.com/62832487/134772975-cf4cc75b-1b51-4094-b9ab-f3aff92a7976.png)
+
+File real.pdf :
+
+![0cf0478cd2f3ebb2f0a959decd276d3b](https://user-images.githubusercontent.com/62832487/134773009-6c42c8c6-5771-40fb-b861-129fa9813d73.png)
+
+
 ### Soal No. 8
 Cari paket yang menunjukan pengambilan file dari FTP tersebut!
 
@@ -62,3 +145,4 @@ isi dari file Wanted.pdf
 ### Soal No. 15
 
 ### Kendala yang Dialami
+kurang teliti dalam membaca soal yang mengakibatkan salah satu soal menjadi revisi

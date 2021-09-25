@@ -57,6 +57,7 @@ Maka didapat command sql yg berisi SELECT atau select
 Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan password bisa didapat dari query insert pada table users dari file .pcap!
 
 **Penyelesaian**
+
 Wireshark filter : `mysql contains "INSERT"`<br>
 maka di dapat id dan password nya<br>
 

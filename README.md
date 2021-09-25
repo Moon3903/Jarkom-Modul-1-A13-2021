@@ -139,10 +139,58 @@ isi dari file Wanted.pdf
 ![soal10 (3)](https://user-images.githubusercontent.com/75364000/134764985-420edbac-1f57-4ee1-80e3-b6a138df6b63.jpg)
 
 ### Soal No. 11
+
+Filter sehingga wireshark hanya mengambil paket yang berasal dari port 80! 
+
+**Penyelesaian**
+
+Wireshark capture filter : src port 80
+![image](https://user-images.githubusercontent.com/68369091/134773171-b0fa9095-8698-4d4c-ba5c-63fced4c5207.png)
+
 ### Soal No. 12
+
+Filter sehingga wireshark hanya mengambil paket yang mengandung port 21!
+
+**Penyelesaian**
+
+Wireshark capture filter : port 21
+
+![image](https://user-images.githubusercontent.com/68369091/134773184-bd17c4b3-0843-4c12-9515-a7b2b8f67eb2.png)
+
 ### Soal No. 13
+
+Filter sehingga wireshark hanya menampilkan paket yang menuju port 443!
+
+**Penyelesaian**
+
+Karena disuruh menampilkan, bukan mengambil, menggunakan display filter.
+
+Wireshark display filter : tcp.dstport == 443
+
+![image](https://user-images.githubusercontent.com/68369091/134773198-e4e03bd2-8cbb-43f1-9771-7295e681b2bd.png)
+
+
 ### Soal No. 14
+
+Filter sehingga wireshark hanya mengambil paket yang tujuannya ke kemenag.go.id!
+
+**Penyelesaian**
+
+Wireshark capture filter : dst kemenag.go.id
+
+![image](https://user-images.githubusercontent.com/68369091/134773208-870e484f-5392-4491-9865-8ec84dae544e.png)
+
+
 ### Soal No. 15
 
+Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
+
+**Penyelesaian**
+
+Wireshark capture filter: ip src 192.168.0.10
+
+![image](https://user-images.githubusercontent.com/68369091/134773223-00c7b8a1-a75d-4bf3-b9aa-c12d6fa220cf.png)
+
+
 ### Kendala yang Dialami
-kurang teliti dalam membaca soal yang mengakibatkan salah satu soal menjadi revisi
+- Kurang teliti dalam membaca soal yang mengakibatkan salah satu soal menjadi revisi
